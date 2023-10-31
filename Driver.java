@@ -11,9 +11,9 @@ public class Driver
       // Get student info   
       Scanner keyboard = new Scanner(System.in);
       System.out.print("Enter student name: ");
-      String tempName = keyboard.nextLine();
-      System.out.print("Enter student ID: ");
-      String tempID = keyboard.nextLine();
+      String name = keyboard.nextLine();
+      System.out.print("Enter coure name: ");
+      String course = keyboard.nextLine();
 
       // Get random assignment data
       System.out.println("\n--> Retrieving data from remote server, please be patient.\n");
@@ -24,13 +24,13 @@ public class Driver
       String rawData = s.nextLine();
       
       // Print raw data for debugging purposes
-      System.out.println(rawData);
+      // System.out.println(rawData);
       
       // Parse group of assignments into individual items 
       String[] rawAssignments = rawData.split(",");
       
       // Now create a student instance
-      Student student = new Student(tempName,tempID);
+      GradeBook book = new GradeBook(name, course);
 
       // Parse each individual assignment item into components and create assignment objects 
       for(String a : rawAssignments)
@@ -41,10 +41,10 @@ public class Driver
          
          Assignment temp = new Assignment(components[0], gc, Double.parseDouble(components[2]));
          
-         student.addAssignment(temp);
+         book.addAssignment(temp);
       }
       
-      System.out.println(student);
+      System.out.println(book);
       
       
    }

@@ -106,7 +106,6 @@ public class Assignment
    public String toString()
    {
       SimpleDateFormat fmt = new SimpleDateFormat("MM/dd/yy hh:mm a");
-      //fmt.setCalendar(this.due);
       String formattedDate = fmt.format(this.due.getTime());
       
       return "Assignment: " + this.name + "\n" +
@@ -114,12 +113,4 @@ public class Assignment
              "Grade: " + this.getGradeLetter() + " [" + String.format("%.2f%%",this.grade) + "]\n";
    }
    
-   public static void main(String[] args)
-   {
-      Assignment a = new Assignment("WK1", new GregorianCalendar(), 98.5);
-      
-      System.out.println( a );
-   
-   }
-
 }
